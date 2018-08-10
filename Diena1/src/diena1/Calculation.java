@@ -19,6 +19,9 @@ public class Calculation {
         System.out.println(a);
            
     }
+    
+    
+    
     public double Saskaitisana(double a, double b){
         return a + b;
        

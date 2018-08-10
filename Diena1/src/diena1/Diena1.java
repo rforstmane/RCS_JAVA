@@ -23,7 +23,9 @@ public class Diena1 {
         calc.Izvade("Forstmane");*/
         //String input=calc.Izvade("hsjf");
         
-        Calculation calc = new Calculation();
+        // ja ir static f-ja, tad nav jātaisa objekts, bet citām ir jātaisa objekts
+        
+        Calculation calc = new Calculation(); //calc sauc par klased objektu
         Scanner sc = new Scanner(System.in);
         
         //calc.Izvade(" ");
@@ -38,6 +40,8 @@ public class Diena1 {
         
         double Starpiba = calc.Atnemsana(sk1, sk2);
         System.out.println("Starpiba ir: " + Starpiba);
+        
+        // sout + tab = ātrāka izvade
         
         
         
