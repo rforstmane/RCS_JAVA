@@ -11,12 +11,27 @@ package Diena7_package;
  */
 public class Aprekins {
     
-    public String Saskaitit(int a, int b){
-        String rezultats;
+    public String Aprekinat(int a, int b, String darbiba){
+        String rezultats = "";
         
-        rezultats = String.valueOf(a+b); // skaitlsi konvertējas string formātā
+        if(darbiba.equals("+")){
+            rezultats = String.valueOf(a+b); // skaitlis konvertējas string formātā
+        }
+        if(darbiba.equals("-")){
+            rezultats = String.valueOf(a-b); // skaitlis konvertējas string formātā
+        }
         
+        if (darbiba.equals("^")){
+            
+            int kapinasana = 1;
+            for (int i=0; i<b; i++ ){
+                kapinasana = a * kapinasana;
+            }
+            rezultats = String.valueOf(kapinasana);
+        }
         return rezultats;
     }
+    
+    
     
 }

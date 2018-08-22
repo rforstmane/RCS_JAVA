@@ -12,13 +12,19 @@ package Diena7_package;
 public class GUI extends javax.swing.JPanel {
     
     String pirmaisSkaitlis;
-    boolean uzspiestsPluss = false;
+    String zime = "";
+    boolean darbiba = false;
+    
+    
+    
 
     /**
      * Creates new form GUI
      */
     public GUI() {
         initComponents();
+        
+        
     }
 
     /**
@@ -43,6 +49,9 @@ public class GUI extends javax.swing.JPanel {
         Laukums = new javax.swing.JLabel();
         pogaequal = new javax.swing.JButton();
         pogaplus = new javax.swing.JButton();
+        Minus = new javax.swing.JButton();
+        Clear = new javax.swing.JButton();
+        Kapinasana = new javax.swing.JButton();
 
         poga1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         poga1.setText("1");
@@ -142,13 +151,37 @@ public class GUI extends javax.swing.JPanel {
             }
         });
 
+        Minus.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Minus.setText("-");
+        Minus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MinusActionPerformed(evt);
+            }
+        });
+
+        Clear.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Clear.setText("CE");
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+
+        Kapinasana.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Kapinasana.setText("^");
+        Kapinasana.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KapinasanaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(46, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap(63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(poga4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,7 +194,10 @@ public class GUI extends javax.swing.JPanel {
                         .addComponent(poga7, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(poga8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(poga0, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(Clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(poga0, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(poga9, javax.swing.GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
@@ -169,8 +205,12 @@ public class GUI extends javax.swing.JPanel {
                     .addComponent(poga3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pogaequal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(pogaplus)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pogaplus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Minus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Kapinasana))
+                .addContainerGap(48, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
                 .addComponent(Laukums, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -183,86 +223,136 @@ public class GUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(poga1)
                     .addComponent(poga2)
-                    .addComponent(poga3))
+                    .addComponent(poga3)
+                    .addComponent(pogaplus))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(poga4)
                     .addComponent(poga5)
                     .addComponent(poga6)
-                    .addComponent(pogaplus))
+                    .addComponent(Minus))
                 .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(poga7)
                     .addComponent(poga8)
-                    .addComponent(poga9))
+                    .addComponent(poga9)
+                    .addComponent(Kapinasana, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pogaequal)
-                    .addComponent(poga0))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                    .addComponent(poga0)
+                    .addComponent(Clear))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(Laukums, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void SkaitluParadisana(String poga){
+        
+        String currentText = Laukums.getText();
+        if(currentText.equals("0") || currentText.equals("+") || currentText.equals("-") || currentText.equals("^")){
+            currentText = "";
+        }
+        Laukums.setText(currentText + poga);
+    }
+    
     private void poga1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga1ActionPerformed
-        Laukums.setText("1");
+        
+        SkaitluParadisana("1");
     }//GEN-LAST:event_poga1ActionPerformed
 
     private void poga2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga2ActionPerformed
-        Laukums.setText("2");
+        
+       SkaitluParadisana("2");
     }//GEN-LAST:event_poga2ActionPerformed
 
     private void poga3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga3ActionPerformed
-        Laukums.setText("3");
+        
+        SkaitluParadisana("3");
     }//GEN-LAST:event_poga3ActionPerformed
 
     private void poga4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga4ActionPerformed
-        Laukums.setText("4");
+        
+        SkaitluParadisana("4");
     }//GEN-LAST:event_poga4ActionPerformed
 
     private void poga5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga5ActionPerformed
-        Laukums.setText("5");
+        
+        SkaitluParadisana("5");
     }//GEN-LAST:event_poga5ActionPerformed
 
     private void poga6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga6ActionPerformed
-        Laukums.setText("6");
+        
+        SkaitluParadisana("6");
     }//GEN-LAST:event_poga6ActionPerformed
 
     private void poga7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga7ActionPerformed
-        Laukums.setText("7");
+        
+        SkaitluParadisana("7");
     }//GEN-LAST:event_poga7ActionPerformed
 
     private void poga8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga8ActionPerformed
-       Laukums.setText("8");
+       
+        SkaitluParadisana("8");
     }//GEN-LAST:event_poga8ActionPerformed
 
     private void poga9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga9ActionPerformed
-        Laukums.setText("9");
+        
+        SkaitluParadisana("9");
     }//GEN-LAST:event_poga9ActionPerformed
 
     private void poga0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_poga0ActionPerformed
-        Laukums.setText("0");
+        
+        SkaitluParadisana("0");
     }//GEN-LAST:event_poga0ActionPerformed
 
     private void pogaequalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pogaequalActionPerformed
-        if(uzspiestsPluss){
+        if(darbiba){
             int skaitlis1 = Integer.valueOf(pirmaisSkaitlis);
             int skaitlis2 = Integer.valueOf(Laukums.getText());
+            
             Aprekins rekins = new Aprekins();
-            Laukums.setText(rekins.Saskaitit(skaitlis1, skaitlis2));
-            uzspiestsPluss = false;
+            Laukums.setText(rekins.Aprekinat(skaitlis1, skaitlis2, zime));
+            darbiba= false;
+            zime = "";
         }
     }//GEN-LAST:event_pogaequalActionPerformed
 
     private void pogaplusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pogaplusActionPerformed
         pirmaisSkaitlis = Laukums.getText();
-        uzspiestsPluss = true;
+        darbiba = true;
+        zime = "+";
+        Laukums.setText("+");
     }//GEN-LAST:event_pogaplusActionPerformed
+
+    private void MinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinusActionPerformed
+        // TODO add your handling code here:
+        pirmaisSkaitlis = Laukums.getText();
+        darbiba = true;
+        zime = "-";
+        Laukums.setText("-");
+    }//GEN-LAST:event_MinusActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        Laukums.setText("0");
+    }//GEN-LAST:event_ClearActionPerformed
+
+    private void KapinasanaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KapinasanaActionPerformed
+        pirmaisSkaitlis = Laukums.getText();
+        darbiba = true;
+        zime = "^";
+        Laukums.setText("^");
+                
+    }//GEN-LAST:event_KapinasanaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Clear;
+    private javax.swing.JButton Kapinasana;
     private javax.swing.JLabel Laukums;
+    private javax.swing.JButton Minus;
     private javax.swing.JButton poga0;
     private javax.swing.JButton poga1;
     private javax.swing.JButton poga2;
