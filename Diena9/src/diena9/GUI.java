@@ -146,22 +146,21 @@ public class GUI extends javax.swing.JPanel {
          String login = InputLogin.getText();
          String password = InputLogin.getText();
          
-//          if (login.equals("") || password.equals("")){
-//            Label.setText("Lietotājvards vai parole nav pareiza");
-//          }else {
-//              Label.setText("Veiksmīgi");
-//          }
-//          if (login.length()< 5 || password.length() < 5){
-//              Label.setText("Lietotājvards vai parole nav pareiza");
-//          }else {
-//              Label.setText("Veiksmīgi");
-//          }
-          if (password.matches(".*\\d+.*")){
+          if (login.equals("") || password.equals("")){
+            Label.setText("Lietotājvards vai parole nav pareiza");
+          }else {
               Label.setText("Veiksmīgi");
           }
-//          }else{
-//              Label.setText("Lietotājvards vai parole nav pareiza");
-//          }
+          if (login.length()< 5 || password.length() < 5){
+              Label.setText("Lietotājvards vai parole nav pareiza");
+          }else {
+              Label.setText("Veiksmīgi");
+          }
+          if (password.matches(".*\\d+.*")){
+              Label.setText("Veiksmīgi");
+          }else{
+              Label.setText("Lietotājvards vai parole nav pareiza");
+          }
 //          for (int i=0; i< login.length(); i++){
 //              char c = login.charAt(i);
 //             
