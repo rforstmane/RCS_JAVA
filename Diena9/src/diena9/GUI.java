@@ -147,24 +147,31 @@ public class GUI extends javax.swing.JPanel {
          String password = InputLogin.getText();
          
           if (login.equals("") || password.equals("")){
-            Label.setText("Lietotājvards vai parole nav pareiza");
-          }else {
-              Label.setText("Veiksmīgi");
+            Label.setText("Lauki ir tukši");
           }
-          if (login.length()< 5 || password.length() < 5){
-              Label.setText("Lietotājvards vai parole nav pareiza");
-          }else {
-              Label.setText("Veiksmīgi");
+          
+          if (login.length() < 6 || password.length() < 6){
+              Label.setText("Nepareizs simbolu skaits");
           }
-          if (password.matches(".*\\d+.*")){
-              Label.setText("Veiksmīgi");
-          }else{
-              Label.setText("Lietotājvards vai parole nav pareiza");
+          
+          if (!password.matches(".*[a-zA-Z]+.*")){
+              Label.setText("Burti pietrūkst");
           }
-//          for (int i=0; i< login.length(); i++){
-//              char c = login.charAt(i);
-//             
-//          }
+          
+          if (!password.matches(".*[0-9]+.*")){
+              Label.setText("Pietrūkst cipari");
+          }
+          
+          if(password.contains("DROP")){
+              Label.setText("NO injections");
+          }
+          
+          if (login.charAt(0)!=(login.toUpperCase().charAt(0))){
+              Label.setText("Pirmais burts nav lielais!");
+              String check = "" + login.charAt(0);
+              //parbaude
+          }
+
           
     }//GEN-LAST:event_AizietActionPerformed
 
